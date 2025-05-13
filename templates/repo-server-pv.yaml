@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.repoServer.pv.name }}
+spec:
+  capacity:
+    storage: {{ .Values.repoServer.pv.storage }}
+  accessModes:
+    - {{ .Values.repoServer.pv.accessMode }}
+  persistentVolumeReclaimPolicy: {{ .Values.repoServer.pv.reclaimPolicy }}
+  storageClassName: {{ .Values.repoServer.pv.storageClass }}
+  hostPath:
+    path: {{ .Values.repoServer.pv.hostPath }}
+    type: DirectoryOrCreate
